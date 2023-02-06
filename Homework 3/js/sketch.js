@@ -34,7 +34,7 @@ function preload()
   cake = loadImage('images/cakeslice.png');
   star = loadImage('images/star.png');
   bread = loadImage('images/bread.png');
-  font = loadFont('fonts/font.ttf');
+  font = loadFont('fonts/The Richland.otf');
   
 }
 
@@ -284,6 +284,8 @@ function draw() {
   ranY2 += ranYSpeed;
   ranX3 += ranXSpeed;
   ranY3 -= ranYSpeed;
+  starX -= ranXSpeed;
+  starY -= ranYSpeed;
   }
 if (timerValue >= 10) {
     text("0:" + timerValue, 175, 45);
