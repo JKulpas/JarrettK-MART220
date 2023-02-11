@@ -20,9 +20,9 @@ var zombieObjects = [];
 function preload () {
   
   
-  boyZombie = new zombie('assets/Idle (1).png', 0, 0);
+  boyZombie = new zombieClass('assets/Idle (1).png', 0, 0);
     zombieObjects[0] = zombie;
-  boyZombie = new zombie('assets/Idle (2).png', 0, 0);
+  boyZombie = new zombieClass('assets/Idle (2).png', 0, 0);
     zombieObjects[1] = zombie; 
 }
 
