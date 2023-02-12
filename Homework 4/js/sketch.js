@@ -16,14 +16,17 @@ var ranY3 =1;
 var boyZombie
 var zombieArray = [];
 var zombieObjects = [];
+var zombieRunObjects = [];
 
 function preload () {
   
   
-  boyZombie = new zombieClass('assets/Idle (1).png', 0, 0);
+  boyZombie = new zombie('assets/Idle (1).png', 0, 0);
     zombieObjects[0] = zombie;
-  boyZombie = new zombieClass('assets/Idle (2).png', 0, 0);
+  boyZombie = new zombie('assets/Idle (2).png', 0, 0);
     zombieObjects[1] = zombie; 
+  boyZombie = new zombie('assets/Idle (3).png', 0, 0);
+    zombieObjects[2] = zombie;
 }
 
 function setup() {
