@@ -1,133 +1,87 @@
-var playerX = 195;
-var playerY = 80;
-
-var w = 87; 
-var s = 83;
-var a = 65;
-var d = 68;
-
-var ranX1 =1;
-var ranY1 =1;
-var ranX2 =1;
-var ranY2 =1;
-var ranX3 =1;
-var ranY3 =1;
-
-var boyZombie
-var zombieArray = [];
+var boyZombie;
+var zombieIdle;
+var zombieMovement;
+var zombieRun;
 var zombieObjects = [];
 var zombieRunObjects = [];
 
+
+var counter = 0;
+
+
 function preload () {
-  
-  
-  boyZombie = new zombie('assets/Idle (1).png', 0, 0);
-    zombieObjects[0] = zombie;
-  boyZombie = new zombie('assets/Idle (2).png', 0, 0);
-    zombieObjects[1] = zombie; 
-  boyZombie = new zombie('assets/Idle (3).png', 0, 0);
-    zombieObjects[2] = zombie;
+
+
+  boyZombie = loadImage('assets/Idle (1).png');
+    zombieObjects[0] = boyZombie;
+  boyZombie = loadImage('assets/Idle (2).png');
+    zombieObjects[1] = boyZombie;
+  boyZombie = loadImage('assets/Idle (3).png');
+    zombieObjects[2] = boyZombie;
+  boyZombie = loadImage('assets/Idle (4).png');
+    zombieObjects[3] = boyZombie;
+  boyZombie = loadImage('assets/Idle (5).png');
+    zombieObjects[4] = boyZombie;
+  boyZombie =  loadImage('assets/Idle (6).png');
+    zombieObjects[5] = boyZombie;
+  boyZombie =  loadImage('assets/Idle (7).png');
+    zombieObjects[6] = boyZombie;
+  boyZombie =  loadImage('assets/Idle (8).png');
+    zombieObjects[7] = boyZombie;
+  boyZombie =  loadImage('assets/Idle (9).png');
+    zombieObjects[8] = boyZombie;
+  boyZombie =  loadImage('assets/Idle (10).png');
+    zombieObjects[9] = boyZombie;
+
+
+  boyZombie =  loadImage('assets/Walk (1).png');
+    zombieRunObjects[0] = boyZombie;
+  boyZombie =  loadImage('assets/Walk (2).png');
+    zombieRunObjects[1] = boyZombie;
+  boyZombie =  loadImage('assets/Walk (3).png');
+    zombieRunObjects[2] = boyZombie;
+  boyZombie =  loadImage('assets/Walk (4).png');
+    zombieRunObjects[3] = boyZombie;
+  boyZombie =  loadImage('assets/Walk (5).png');
+    zombieRunObjects[4] = boyZombie;
+  boyZombie = loadImage('assets/Walk (6).png');
+    zombieRunObjects[5] = boyZombie;
+  boyZombie =  loadImage('assets/Walk (7).png');
+    zombieRunObjects[6] = boyZombie;
+  boyZombie = loadImage('assets/Walk (8).png');
+    zombieRunObjects[7] = boyZombie;
+  boyZombie =  loadImage('assets/Walk (9).png');
+    zombieRunObjects[8] = boyZombie;
+  boyZombie =  loadImage('assets/Walk (10).png');
+    zombieRunObjects[9] = boyZombie;
+   
 }
+
 
 function setup() {
   createCanvas(400, 400);
 
-   ranXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-   ranYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-  
-  ranX1+=random(400);
-  ranY1+=random(400);
-  ranX2+=random(400);
-  ranY2+=random(400);
-  ranX3+=random(400);
-  ranY3+=random(400);
+
+zombieMovement = new zombie();
+zombieIdle = new zombie();
+zombieRun = new zombie();
+
+
 }
+
 
 function draw() {
   background(0,0,0);
-  
-  randomObjects();
+ 
   scoops();
   coneShape();
   scoopsOverlap();
-  moveCharacter();
-  characterLoop();
-  randomSpeeds();
-  randomLoops();
+  zombieMovement.movement();
  
-  function characterLoop()
-  {
-  if(playerX > width)
-    {
-        playerX = 0;
-    }
-    if(playerX < 0)
-    {
-        playerX = width;
-    }
-    if(playerY > height)
-    {
-        playerY = 0;
-    }
-    if(playerY < 0)
-    {
-       playerY = height;
-    }
-  }
-  function randomLoops()
-  {
-  if(ranX1 > width)
-    {
-        ranX1 = 0;
-    }
-    if(ranX1 < 0)
-    {
-        ranX1 = width;
-    }
-    if(ranY1 > height)
-    {
-        ranY1= 0;
-    }
-     if(ranY1 < 0)
-    {
-        ranY1 = height;
-    }
-    if(ranX2 > width)
-    {
-        ranX2 = 0;
-    }
-    if(ranX2 < 0)
-    {
-        ranX2 = width;
-    }
-    if(ranY2 > height)
-    {
-        ranY2 = 0;
-    }
-    if(ranY2 < 0)
-    {
-        ranY2 = height;
-    }
-    if(ranX3 > width)
-    {
-        ranX3 = 0;
-    }
-    if(ranX3 < 0)
-    {
-        ranX3 = width;
-    }
-    if(ranY3 > height)
-    {
-        ranY3 = 0;
-    }
-    if(ranY3 < 0)
-    {
-        ranY3 = height;
-    }
-  }
+
 
   function scoops(){
-  
+ 
   noStroke();
   fill(128,75,18)
   ellipse(195,120,70)
@@ -164,7 +118,7 @@ function draw() {
   //waffel cone last level
   triangle(182,270,195,298,208,270)
   }
-  
+ 
   function scoopsOverlap(){
   noStroke();
   fill(128,75,18)
@@ -177,43 +131,8 @@ function draw() {
   rect(195,205,10,25)
   ellipse(200,230,10)
   }
-  
-  function randomObjects(){
-    fill(255,0,0)
-  circle(playerX,playerY,20)
-   circle(ranX1,ranY1,25)
-  circle(ranX2,ranY2,40)
-  circle(ranX3,ranY3,50)
-  }
-  
-  function moveCharacter() 
-{
-    if(keyIsDown(w))
-    {
-      playerY -= 2;   
-    }
-   if(keyIsDown(s))
-    {
-        playerY += 2;   
-    }
-    if(keyIsDown(a))
-    {
-        playerX -= 2;   
-    }
-    if(keyIsDown(d))
-    {
-        playerX += 2;   
-    }
-}
-  function randomSpeeds()
-  {
-  ranX1 += ranXSpeed;
-  ranY1 -= ranYSpeed;
-  ranX2 -= ranXSpeed;
-  ranY2 += ranYSpeed;
-  ranX3 += ranXSpeed;
-  ranY3 -= ranYSpeed;
-  }
+ 
+
 
   fill(255,255,255)
   textSize(20)
