@@ -21,8 +21,4 @@ class iceCreamFood {
         triangle(this.x-41,this.y+6,this.x+41,this.y+6,this.x,this.y+90)
         
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ca737421e45be569d6a44180b8352a925d6dadd7

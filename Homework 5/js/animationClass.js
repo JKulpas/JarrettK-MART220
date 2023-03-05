@@ -1,25 +1,15 @@
 class animationZombie {
-<<<<<<< HEAD
     constructor(paths, x, y, w, h) 
   {
     this.paths = paths;
-=======
-    constructor(path, x, y, w, h) 
-  {
-    this.path = path;
->>>>>>> ca737421e45be569d6a44180b8352a925d6dadd7
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h;
-<<<<<<< HEAD
     this.i = 0;
     this.animationObjects = [];
     this.loadAnimations()
     this.currentFrameCount = 0;
-=======
-    this.zombie = this.loadAnimations();
->>>>>>> ca737421e45be569d6a44180b8352a925d6dadd7
 }
 
 getX()
@@ -32,7 +22,6 @@ getY()
     return this.y;
 }
 
-<<<<<<< HEAD
 setCurrentFrameCount(currentFrameCount)
 {
     this.currentFrameCount = currentFrameCount;
@@ -44,16 +33,10 @@ setCurrentFrameCount(currentFrameCount)
     {
        this.animationObjects[i] = loadImage(this.paths[i]);
     }
-=======
- loadAnimations()
- {
-    return loadImage(this.path);
->>>>>>> ca737421e45be569d6a44180b8352a925d6dadd7
  }
 
  drawAnimation()
  {
-<<<<<<< HEAD
     this.incrementIndex();
     if(this.direction == "backwards")
     {
@@ -97,8 +80,4 @@ updatePositions(direction)
         this.y += 1;
     }
 }
-=======
-    image(this.zombie, this.x, this.y, this.w, this.h);
- }
->>>>>>> ca737421e45be569d6a44180b8352a925d6dadd7
 }
