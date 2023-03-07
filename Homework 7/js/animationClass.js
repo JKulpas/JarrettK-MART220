@@ -21,6 +21,14 @@ getY()
 {
     return this.y;
 }
+getW()
+{
+    return this.w
+}
+getH()
+{
+    return this.h
+}
 
 setCurrentFrameCount(currentFrameCount)
 {
@@ -80,4 +88,36 @@ updatePositions(direction)
         this.y += 1;
     }
 }
+
+isRectanglesColliding(rec2){
+    var topEdge1 = this.y + this.h;
+    var rightEdge1 = this.x + this.w; 
+    var leftEdge1 = this.x;
+    var bottomEdge1 = this.y;
+    var topEdge2 = rec2.getY() + rec2.getH();
+    var rightEdge2 = rec2.getX() + rec2.getW(); 
+    var leftEdge2 = rec2.getX();
+    var bottomEdge2 = rec2.getY();   
+    
+    if( leftEdge1 < rightEdge2 && rightEdge1 > leftEdge2 && bottomEdge1 < topEdge2 && topEdge1 > bottomEdge2){
+        return true; 
+   }
+   return false;
+  }
+
+  isIceCreamColliding(icecream2){
+    var topEdge1 = this.y + this.h;
+    var rightEdge1 = this.x + this.w; 
+    var leftEdge1 = this.x;
+    var bottomEdge1 = this.y;
+    var topEdge2 = icecream2.getY() + icecream2.getH();
+    var rightEdge2 = icecream2.getX() + icecream2.getW(); 
+    var leftEdge2 = icecream2.getX();
+    var bottomEdge2 = icecream2.getY();   
+    
+    if( leftEdge1 < rightEdge2 && rightEdge1 > leftEdge2 && bottomEdge1 < topEdge2 && topEdge1 > bottomEdge2){
+        return true; 
+   }
+   return false;
+  }
 }
