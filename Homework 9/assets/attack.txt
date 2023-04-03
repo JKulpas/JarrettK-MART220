@@ -1,0 +1,8 @@
+./assets/Attack (1).png
+./assets/Attack (2).png
+./assets/Attack (3).png
+./assets/Attack (4).png
+./assets/Attack (5).png
+./assets/Attack (6).png
+./assets/Attack (7).png
+./assets/Attack (8).png
